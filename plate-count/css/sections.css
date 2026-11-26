@@ -1,0 +1,32 @@
+/* ==========================================================
+   SECTIONS
+   Styles for each part: profile (top card), Eat, Plan, Train, Cardio.
+   ========================================================== */
+.mu{fill:#E3E6EC;transition:fill .4s}.mu.hot{fill:var(--acc)}.bd{fill:#F5F6F8;stroke:#D5D8DE}#fig{width:100%;max-width:360px;display:block;margin:10px 0}#fig text{font:600 9px Figtree,sans-serif;fill:#8A8F98;text-anchor:middle}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0}.card{border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:10px 4px;cursor:pointer;color:#8A8F98;font:600 12px Figtree,sans-serif;text-align:center}.card.on{border-color:var(--acc);color:var(--acc);background:#F3F6FF}.card svg{width:100%;height:50px;display:block;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.stats4{grid-template-columns:repeat(4,1fr)}.stats4 .stat{padding:0 8px}.stats4 .stat b{font-size:clamp(30px,9vw,54px)}
+#p-eat .stats{grid-template-columns:repeat(2,1fr)}
+.ex{cursor:pointer;background:none;border:0;padding:8px 0;font:inherit;color:inherit;text-align:left;flex:1;min-width:0}.ex:hover{color:var(--acc)}.done .ex{text-decoration:line-through;color:var(--mute)}li.sel{background:#F3F6FF;box-shadow:inset 3px 0 var(--acc);padding-left:10px}
+#exd{background:var(--soft);border-radius:14px;padding:14px 16px;margin:6px 0 14px}#exd b{font:900 30px/1 "Big Shoulders Display",sans-serif}#exd p{margin:6px 0 0}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.chips span{background:var(--acc);color:#fff;border-radius:99px;padding:2px 10px;font-size:13px;font-weight:600}
+.water{display:flex;gap:20px;align-items:center;margin:8px 0}#bot{width:110px;flex:none}#bot .wv{transition:transform .7s cubic-bezier(.3,1.4,.5,1)}
+.gl{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.gl i{width:22px;height:30px;border:2px solid var(--line);border-top-width:1px;border-radius:2px 2px 8px 8px;transition:background .3s,border-color .3s}.gl i.on{background:#7DB0FF;border-color:var(--acc)}
+#anim{width:100%;max-width:380px;display:block;margin:10px 0;background:#fff;border-radius:12px}
+#anim line,#anim polyline{stroke:var(--ink);stroke-width:7;stroke-linecap:round;stroke-linejoin:round;fill:none}#anim .th{stroke:#B8BDC6;stroke-width:2}#anim .fl{stroke:#D5D8DE;stroke-width:2}#anim .pl{fill:var(--acc);stroke:var(--ink);stroke-width:2}#anim .pd{fill:#C8CDD6}#anim .hd{fill:var(--ink)}
+.prof{background:#fff;border:1px solid #E7ECFB;border-radius:24px;padding:18px 20px 16px;box-shadow:0 14px 40px #1B4DFF14;margin:6px 0 24px}.prof h2{margin-top:0}.prof input{font:700 30px "Big Shoulders Display","Arial Narrow",sans-serif;padding:4px 2px}.prof select{font:600 15px Figtree,sans-serif}
+.sexs{display:flex;gap:10px;flex:2;min-width:200px}.sx{position:relative;overflow:hidden;flex:1;display:flex;align-items:center;justify-content:center;gap:10px;border:1.5px solid var(--line);background:#fff;border-radius:16px;padding:8px;font:600 14px Figtree,sans-serif;color:#8A8F98;cursor:pointer;transition:border-color .2s,color .2s,background .2s,transform .12s}.sx:active{transform:scale(.95)}.sx svg{width:26px;height:38px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.sx:hover svg{animation:wig .5s}.sx.on{border-color:var(--acc);color:var(--acc);background:#F3F6FF;animation:pop .35s}.sx.on svg{animation:bob 1.2s ease-in-out infinite}
+.bmi{margin:12px 0 4px}.bmv{font:900 26px "Big Shoulders Display",sans-serif}.bar2{position:relative;height:10px;border-radius:6px;margin:8px 0 4px;background:linear-gradient(90deg,#9DB5FF 0 14%,#7ED6A8 14% 40%,#FFD27A 40% 60%,#FF9A8B 60% 100%)}.bar2 i{position:absolute;top:-4px;left:0;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:#fff;border:3px solid var(--ink);transition:left .9s cubic-bezier(.3,1.4,.5,1),opacity .3s;opacity:0}.bl{display:flex;font-size:12px;color:var(--mute)}.bl span:nth-child(1){width:14%}.bl span:nth-child(2){width:26%}.bl span:nth-child(3){width:20%}
+.foodbox{position:relative;background:linear-gradient(135deg,#FFF6EC,#F1FBF5);border-radius:22px;padding:2px 18px 18px;margin-top:30px;overflow:hidden}.foodbox h2{margin-top:18px}.fe{position:absolute;font-style:normal;opacity:.55;font-size:34px;pointer-events:none;animation:flt 5s ease-in-out infinite alternate}.e1{right:16px;top:12px}.e2{right:74px;top:42px;font-size:26px;animation-delay:-2s}.e3{right:30px;top:88px;animation-delay:-4s}
+
+.k small{display:block;font:400 11px Figtree,sans-serif;color:var(--mute);text-align:right}
+
+/* Plates and quick meals (Eat tab) */
+.plates{display:grid;grid-template-columns:1fr;gap:12px}
+.plate{display:grid;grid-template-columns:44px 1fr auto;grid-template-areas:"em pn pc" "pv pv add";gap:8px 12px;align-items:center;border:1px solid var(--line);border-radius:18px;padding:12px;background:var(--panel);transition:transform .2s,box-shadow .2s}
+.plate:hover{transform:translateY(-2px);box-shadow:0 10px 24px #1B4DFF14}
+.plate .em{grid-area:em}.plate .pn{grid-area:pn;min-width:0}.pn b{display:block}.pn span{font-size:12px;color:var(--mute)}
+.plate .pc{grid-area:pc;display:flex;align-items:center;gap:4px}.plate .pv{grid-area:pv}.plate .padd{grid-area:add}
+.pv b{font:900 22px "Big Shoulders Display",sans-serif}.pv span{display:block;font-size:12px;color:var(--mute)}
+.step{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);background:none;color:var(--ink);font:600 18px Figtree,sans-serif;cursor:pointer;transition:transform .12s,border-color .2s}
+.step:hover{border-color:var(--acc)}.step:active{transform:scale(.86)}
+.cnt{min-width:34px;text-align:center;font:900 24px "Big Shoulders Display",sans-serif}

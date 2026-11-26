@@ -1,0 +1,17 @@
+/* ==========================================================
+   THEME
+   Change the colours here. Most other CSS uses these variables.
+   ========================================================== */
+
+:root{
+  --bg:#fff;         /* page background (white) */
+  --panel:#fff;      /* cards */
+  --soft:#F5F6F8;    /* small tiles */
+  --ink:#0E0E10;     /* main text */
+  --mute:#6B6F76;    /* secondary text */
+  --dim:#B9BCC2;     /* inactive tabs */
+  --line:#E8E8EA;    /* borders */
+  --acc:#1B4DFF;     /* accent blue */
+  --on:#fff;         /* text on the accent */
+  color-scheme:light;
+}

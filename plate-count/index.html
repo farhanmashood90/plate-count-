@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plate Count – eat, train, cardio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Figtree:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/effects.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="bg"><i></i><i></i><b></b></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-tm" viewBox="0 0 80 56"><rect x="8" y="38" width="56" height="7" rx="3.5"/><path d="M60 38L66 14M64 26H44M14 45v5M58 45v5"/><rect x="58" y="6" width="16" height="9" rx="2"/></symbol>
+<symbol id="i-el" viewBox="0 0 80 56"><circle cx="22" cy="40" r="8"/><path d="M6 52h64M30 44h28M58 44L50 8h-9M22 40L40 44"/></symbol>
+<symbol id="i-bk" viewBox="0 0 80 56"><circle cx="16" cy="40" r="11"/><circle cx="62" cy="40" r="11"/><path d="M16 40L32 22h20L62 40M32 22l8 18H16M52 22l-3-9h9M30 17h9"/></symbol>
+<g id="body" class="bd"><circle cx="50" cy="14" r="11"/><rect x="45" y="22" width="10" height="9"/><path d="M30 33Q50 29 70 33L66 100Q50 105 34 100Z"/><rect x="12" y="36" width="13" height="62" rx="6"/><rect x="75" y="36" width="13" height="62" rx="6"/><rect x="33" y="100" width="16" height="104" rx="7"/><rect x="51" y="100" width="16" height="104" rx="7"/></g>
+</defs></svg>
+<main>
+<h1 class="d">plate count</h1>
+<button class="mot d" id="mot" title="Tap for another"></button>
+
+<section id="setup" class="prof"><h2>Your numbers</h2>
+  <div class="f">
+    <label>Weight (kg)<input id="w" type="number" min="30" max="250" inputmode="decimal"></label>
+    <label>Height (cm)<input id="h" type="number" min="120" max="230" inputmode="decimal"></label>
+    <label>Age<input id="age" type="number" min="10" max="90" inputmode="numeric"></label>
+    <select id="sex" hidden aria-hidden="true"><option value="m">Male</option><option value="f">Female</option></select>
+    <div class="sexs" role="group" aria-label="Sex"><button class="sx" data-s="m"><svg viewBox="0 0 40 60"><circle cx="20" cy="9" r="7"/><path d="M9 22h22l-2 20H11zM15 42v14M25 42v14"/></svg>Male</button><button class="sx" data-s="f"><svg viewBox="0 0 40 60"><circle cx="20" cy="9" r="7"/><path d="M20 20L8 46h24zM15 46v10M25 46v10"/></svg>Female</button></div>
+    <label>Gym days a week<select id="act"><option value="1.4">2 to 3</option><option value="1.55">4 to 5</option><option value="1.7">6 or more</option></select></label>
+    <label>Goal<select id="goal"><option value="cut">Lose fat</option><option value="keep">Stay the same</option><option value="bulk">Build muscle</option></select></label>
+  </div>
+  <div class="bmi"><div class="bmv" id="bmv">BMI –</div><div class="bar2"><i id="bm"></i></div><div class="bl"><span>Under</span><span>Healthy</span><span>Above</span><span>Well above</span></div></div>
+  <p class="note" id="sum">Add your weight and height and I’ll set your calorie, protein and water targets.</p>
+</section>
+
+<div class="tabs" role="tablist">
+  <button role="tab" id="t-eat" aria-selected="true">Eat</button>
+  <button role="tab" id="t-plan" aria-selected="false">Plan</button>
+  <button role="tab" id="t-train" aria-selected="false">Train</button>
+  <button role="tab" id="t-cardio" aria-selected="false">Cardio</button>
+</div>
+
+<!-- EAT -->
+<section id="p-eat">
+  <div class="stats">
+    <div class="stat"><b id="sk">0</b><span id="skl">kcal left</span></div>
+    <div class="stat"><b id="sp">0</b><span id="spl">g protein</span></div>
+    
+  </div>
+  <div class="prog" title="Protein"><i id="pb" style="width:0"></i></div>
+
+
+  <div class="cols"><div class="col">
+  <div class="foodbox"><i class="fe e1">🥑</i><i class="fe e2">🍗</i><i class="fe e3">🍌</i><h2>Add food</h2>
+  <div class="f">
+    <label>Search<input id="q" type="search" placeholder="egg, chicken, roti, paneer…" autocomplete="off"></label>
+    <label>How many<input id="a" type="number" min="0.5" step="0.5" value="1"></label>
+    <label>Unit<select id="u"><option value="pc">pieces (egg, roti, banana…)</option><option value="g">grams</option></select></label>
+  </div>
+  <p class="note" style="margin:6px 0">Type a food, a number and a unit, like “egg, 4, pieces”, and the protein shows right away.</p>
+  <ul id="res"></ul></div>
+
+  <h2>Today’s log</h2>
+  <ul id="log"></ul>
+  <button class="btn g" id="clr" style="margin-top:12px">Clear day</button>
+  </div>
+  <div class="col">
+  <h2>Plates and quick meals</h2>
+  <p class="note" style="margin:0 0 8px">Pick how many plates you ate (use − and +), then add them to your log. Plates are approximate and vary by restaurant.</p>
+  <div class="plates" id="plates"></div>
+
+  <h2>How much water to drink</h2>
+  <div class="water">
+    <svg id="bot" viewBox="0 0 110 190" aria-hidden="true"><defs><clipPath id="bc"><path d="M40 4h30v14l16 22v138a8 8 0 0 1-8 8H32a8 8 0 0 1-8-8V40l16-22z"/></clipPath></defs><g clip-path="url(#bc)"><rect width="110" height="190" fill="#EEF2FA"/><g class="wv" id="wv"><path d="M0 8Q14 0 28 8T55 8T83 8T110 8V200H0z" fill="#5E94FF"/></g></g><path d="M40 4h30v14l16 22v138a8 8 0 0 1-8 8H32a8 8 0 0 1-8-8V40l16-22z" fill="none" stroke="#0E0E10" stroke-width="2.5"/></svg>
+    <div><div class="d" style="font-size:64px" id="wn">0 L</div><div id="wt" style="color:var(--mute)"></div><div class="gl" id="gl" aria-label="Glasses of 250 ml"></div></div>
+  </div>
+  <h2>Supplement ideas</h2>
+  <ul id="sup"></ul>
+  <p class="note">Food comes first. Supplements are optional, and the notes here are general. Follow the label and check with your doctor, especially if you take medicine, have a health condition, or are pregnant.</p>
+
+  <p class="note">Values are approximate, per 100 g as listed (cooked where noted). Your portions and recipes will differ. A general guide, not medical or dietary advice.</p>
+  </div></div>
+</section>
+
+<section id="p-plan" hidden>
+  <h2>Your food plan</h2>
+  <div class="seg" id="pgoals"></div>
+  <div class="stats stats4" id="pst"></div>
+  <p class="note" id="pn"></p>
+  <div id="meals"></div>
+</section>
+<!-- TRAIN -->
+<section id="p-train" hidden>
+  <h2>Split</h2>
+  <div class="seg" id="days"></div>
+  <svg id="fig" viewBox="0 0 250 220" role="img" aria-label="Muscles worked today, front and back">
+    <use href="#body"/><use href="#body" x="130"/>
+    <circle class="mu" data-m="delts" cx="26" cy="41" r="8"/><circle class="mu" data-m="delts" cx="74" cy="41" r="8"/>
+    <ellipse class="mu" data-m="chest" cx="41" cy="52" rx="10" ry="8"/><ellipse class="mu" data-m="chest" cx="59" cy="52" rx="10" ry="8"/>
+    <rect class="mu" data-m="abs" x="43" y="64" width="14" height="34" rx="5"/>
+    <rect class="mu" data-m="biceps" x="13" y="46" width="11" height="22" rx="5"/><rect class="mu" data-m="biceps" x="76" y="46" width="11" height="22" rx="5"/>
+    <rect class="mu" data-m="quads" x="34" y="106" width="14" height="50" rx="6"/><rect class="mu" data-m="quads" x="52" y="106" width="14" height="50" rx="6"/>
+    <rect class="mu" data-m="calves" x="35" y="162" width="12" height="36" rx="6"/><rect class="mu" data-m="calves" x="53" y="162" width="12" height="36" rx="6"/>
+    <g transform="translate(130 0)">
+      <circle class="mu" data-m="delts" cx="26" cy="41" r="8"/><circle class="mu" data-m="delts" cx="74" cy="41" r="8"/>
+      <path class="mu" data-m="traps" d="M38 32L62 32L58 46L50 52L42 46Z"/>
+      <path class="mu" data-m="lats" d="M31 48L44 52L44 84L36 78Z"/><path class="mu" data-m="lats" d="M69 48L56 52L56 84L64 78Z"/>
+      <rect class="mu" data-m="lowback" x="43" y="86" width="14" height="14" rx="4"/>
+      <rect class="mu" data-m="triceps" x="13" y="46" width="11" height="22" rx="5"/><rect class="mu" data-m="triceps" x="76" y="46" width="11" height="22" rx="5"/>
+      <ellipse class="mu" data-m="glutes" cx="42" cy="110" rx="9" ry="8"/><ellipse class="mu" data-m="glutes" cx="58" cy="110" rx="9" ry="8"/>
+      <rect class="mu" data-m="hams" x="34" y="122" width="14" height="38" rx="6"/><rect class="mu" data-m="hams" x="52" y="122" width="14" height="38" rx="6"/>
+      <rect class="mu" data-m="calves" x="35" y="164" width="12" height="34" rx="6"/><rect class="mu" data-m="calves" x="53" y="164" width="12" height="34" rx="6"/>
+    </g>
+    <text x="50" y="216">Front</text><text x="180" y="216">Back</text>
+  </svg>
+  <div class="d big" id="dt" style="margin:18px 0 4px"></div>
+  <p class="note" id="dp" style="margin:0 0 8px"></p>
+  <p class="note" style="margin:0 0 6px">Tap an exercise name to see how to do it and which muscles it works.</p>
+  <div id="exd" hidden><div id="exi"></div><svg id="anim" viewBox="0 0 260 210" role="img" aria-label="Animated demo of the exercise"></svg></div>
+  <ul id="ex"></ul>
+  <button class="btn g" id="rst" style="margin-top:12px">Reset this day</button>
+  <p class="note">Day 7: rest, or an easy walk. Pick weights where the last 2 reps are hard but your form stays clean.</p>
+
+</section>
+
+<!-- CARDIO -->
+<section id="p-cardio" hidden>
+  <h2>Burn calculator</h2>
+  <div class="cards" id="modes"></div>
+  <div class="f">
+    <label id="ls">Speed (km/h)<input id="cs" type="number" min="1" max="20" step="0.1" value="3.5"></label>
+    <label id="li">Incline (%)<input id="ci" type="number" min="0" max="40" step="1" value="22"></label>
+    <label>Burn goal (kcal)<input id="ck" type="number" min="50" max="2000" step="50" value="300"></label>
+  </div>
+  <div class="d big" id="cm" style="margin-top:22px">0</div>
+  <p id="cl" style="margin:4px 0 0;color:var(--mute)"></p>
+  <table><thead><tr><th>Time</th><th>Calories</th><th>Body fat, about</th></tr></thead><tbody id="ct"></tbody></table>
+  <p class="note" id="cn"></p>
+</section>
+</main>
+<div id="toast" aria-live="polite"></div>
+<script src="js/data-food.js"></script>
+<script src="js/data-workouts.js"></script>
+<script src="js/core.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/eat.js"></script>
+<script src="js/plan.js"></script>
+<script src="js/train.js"></script>
+<script src="js/animation.js"></script>
+<script src="js/cardio.js"></script>
+<script src="js/effects.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+/* ==========================================================
+   EFFECTS
+   Background, animations and hover effects.
+   ========================================================== */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background-image:radial-gradient(#E1E4EC 1px,transparent 1.3px);background-size:26px 26px}
+.bg i{position:absolute;width:46vmax;height:46vmax;border-radius:50%;opacity:.4;animation:dr 22s ease-in-out infinite alternate;will-change:transform}
+.bg i:nth-child(1){background:radial-gradient(circle,#A9BFFF,transparent 65%);left:-14vmax;top:-12vmax}.bg i:nth-child(2){background:radial-gradient(circle,#ADEBD6,transparent 65%);right:-16vmax;bottom:-16vmax;animation-delay:-9s}
+.bg b{position:absolute;left:0;top:0;width:360px;height:360px;margin:-180px 0 0 -180px;border-radius:50%;background:radial-gradient(circle,#1B4DFF26,transparent 65%);will-change:transform;transform:translate3d(50vw,30vh,0)}
+@keyframes dr{to{transform:translate(8vmax,6vmax) scale(1.15)}}
+.btn,.tabs button,.card{position:relative;overflow:hidden;transition:transform .12s,box-shadow .2s,border-color .2s,color .2s}
+.btn:active,.card:active{transform:scale(.94)}.btn:hover{box-shadow:0 4px 14px #1B4DFF30}
+.rip{position:absolute;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;background:currentColor;opacity:.25;transform:scale(0);animation:rp .6s ease-out forwards;pointer-events:none}
+@keyframes rp{to{transform:scale(14);opacity:0}}
+@media (prefers-reduced-motion:reduce){.bg i{animation:none}*{transition:none!important}.rip{display:none}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}@keyframes grow{from{width:0}}@keyframes drop{from{opacity:0;transform:translateY(-40px) rotate(10deg)}}@keyframes bob{50%{transform:translateY(-4px)}}@keyframes wig{25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}@keyframes flt{to{transform:translateY(-12px) rotate(10deg)}}@keyframes wave{to{transform:translateX(-20px)}}@keyframes pop{50%{transform:scale(1.06)}}
+main>section{animation:rise .55s cubic-bezier(.2,.8,.2,1)}
+h1 span{display:inline-block;animation:drop .8s cubic-bezier(.2,1.4,.4,1) backwards;animation-delay:calc(var(--i)*60ms);transition:transform .25s}h1 span:hover{transform:translateY(-10px) rotate(-4deg)}
+h1::after{content:"";display:block;height:6px;width:90px;border-radius:3px;background:var(--acc);margin-top:8px;animation:grow 1s .6s backwards}
+h2::after{content:"";display:block;height:3px;width:34px;border-radius:2px;background:var(--acc);margin-top:4px;animation:grow .8s .15s backwards}
+li{transition:background .2s}li:hover{background:#FAFBFF}.em{transition:transform .25s}li:hover .em{transform:rotate(-8deg) scale(1.12)}
+#sup li,#meals li{animation:rise .5s cubic-bezier(.2,.8,.2,1) backwards}#sup li:nth-child(2),#meals li:nth-child(2){animation-delay:.06s}#sup li:nth-child(3),#meals li:nth-child(3){animation-delay:.12s}#sup li:nth-child(n+4){animation-delay:.18s}
+.btn:hover{transform:translateY(-2px)}#wv path{animation:wave 3s ease-in-out infinite alternate}

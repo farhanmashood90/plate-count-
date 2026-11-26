@@ -1,0 +1,44 @@
+/* ==========================================================
+   RESPONSIVE
+   Phones use the default styles. Laptops (900px and wider) get two columns.
+   ========================================================== */
+html{-webkit-text-size-adjust:100%}
+body{overflow-x:hidden}
+img,svg{max-width:100%}
+.cols{display:block}
+
+/* Train tab layout (grid areas). Phone order: title, animation, body picture, list. */
+#p-train{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"h" "days" "dt" "dp" "exd" "fig" "hint" "list" "rst" "tnote"}
+#p-train>h2{grid-area:h}#days{grid-area:days}#dt{grid-area:dt}#dp{grid-area:dp}#exd{grid-area:exd}#fig{grid-area:fig}
+#p-train>p:nth-of-type(2){grid-area:hint}#ex{grid-area:list}#rst{grid-area:rst;justify-self:start}#p-train>p:nth-of-type(3){grid-area:tnote}
+
+/* ---------- phones ---------- */
+@media (max-width:520px){
+  main{padding:18px 14px 56px}
+  .tabs{gap:10px;justify-content:space-between}
+  .tabs button{font-size:clamp(28px,8.6vw,40px)}
+  .f label{min-width:calc(50% - 10px)}
+  .foodbox .f label:first-child{min-width:100%}
+  .prof{padding:16px 14px}
+  .stats4{grid-template-columns:repeat(2,1fr)}
+  .card{font-size:11px;padding:8px 2px}
+  .cards{gap:6px}
+}
+@media (pointer:coarse){.btn,.amtu{min-height:42px}.step{width:40px;height:40px}}
+
+/* ---------- tablets ---------- */
+@media (min-width:700px){main{max-width:860px}}
+
+/* ---------- laptops ---------- */
+@media (min-width:900px){
+  main{max-width:1120px;padding:36px 40px 80px}
+  .tabs{gap:36px}.tabs button{font-size:64px}
+  #p-eat .stats{max-width:520px}
+  .cols{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:0 44px;align-items:start}
+  #meals{display:grid;grid-template-columns:1fr 1fr;gap:0 44px}
+  #p-cardio{max-width:760px}
+  #p-train{grid-template-columns:minmax(0,1fr) minmax(0,420px);column-gap:44px;align-items:start;
+    grid-template-areas:"h h" "days days" "dt exd" "dp exd" "hint exd" "list exd" "list fig" "rst fig" "tnote fig"}
+  #fig{max-width:420px;margin:0}
+}
+@media (min-width:1400px){main{max-width:1240px}}
